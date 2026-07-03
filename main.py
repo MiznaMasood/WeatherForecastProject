@@ -8,6 +8,8 @@ Run order:
   1. py main.py                   -> trains all models
   2. py -m streamlit run app.py   -> launches dashboard
 """
+import os
+os.environ["KERAS_BACKEND"] = "tensorflow"
 import warnings
 warnings.filterwarnings("ignore")
 import os, pickle, math
@@ -26,7 +28,7 @@ from xgboost import XGBRegressor
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 # Keras with numpy backend (no TensorFlow needed)
-os.environ["KERAS_BACKEND"] = "numpy"
+# os.environ["KERAS_BACKEND"] = "numpy"
 import keras
 from keras import layers, models, callbacks
 
